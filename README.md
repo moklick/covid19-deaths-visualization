@@ -1,4 +1,4 @@
-# 3D Visualizsation - Covid19 Deaths Worldwide
+# 3D Visualization - Covid-19 Deaths Worldwide
 
 This visualizations shows confirmed Covid-19 deaths since the beginning of the pandemic.
 Each block represents a person that died with a Covid-19 infection. The blocks are grouped

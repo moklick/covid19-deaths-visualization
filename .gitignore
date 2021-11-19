@@ -6,7 +6,6 @@ build
 
 # misc
 .DS_Store
-static/data/*.json
 
 npm-debug.log
 yarn-error.log

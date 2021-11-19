@@ -18,7 +18,7 @@ const Background = styled.div`
 const Modal = styled.div`
   max-width: 600px;
   width: 90%;
-  padding-top: 20vh;
+  padding-top: 10vh;
 
   h1 {
     font-weight: 900;

@@ -11,7 +11,7 @@ function Labels({ data }) {
   return data?.map(({ date, deaths, positions }) => (
     <group key={date}>
       <Text
-        position={[0, 0.01, positions[0][2] + 0.5]}
+        position={[0, 0.01, positions[0][2] + 0.6]}
         rotation-x={-Math.PI / 2}
         textAlign="center"
         lineHeight={1}
@@ -22,7 +22,7 @@ function Labels({ data }) {
         {parseDate(date)}
       </Text>
       <Text
-        position={[0, 0.01, positions[0][2] + 0.72]}
+        position={[0, 0.01, positions[0][2] + 0.8]}
         rotation-x={-Math.PI / 2}
         textAlign="center"
         lineHeight={1}

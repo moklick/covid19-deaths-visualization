@@ -2,9 +2,14 @@ import React from 'react';
 import { Plane } from '@react-three/drei';
 import { usePlane } from '@react-three/cannon';
 
+import useStore from 'state';
+
 const rotationX = -Math.PI / 2;
 
-function Floor({ size }) {
+const selector = (s) => s.size;
+
+function Floor() {
+  const size = useStore(selector);
   const length = Math.ceil((size / 100) * 2);
   const floorZ = -length / 2 + 100;
   const [ref] = usePlane(() => ({ rotation: [rotationX, 0, 0], position: [0, 0.7, floorZ] }));
@@ -18,7 +23,7 @@ function Floor({ size }) {
         position={[0, 0, floorZ]}
         rotation-x={rotationX}
       >
-        <shadowMaterial attach="material" opacity={0.5} />
+        <shadowMaterial attach="material" opacity={0.4} />
       </Plane>
     </>
   );

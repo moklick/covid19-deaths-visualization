@@ -83,13 +83,13 @@ function StartScreen() {
       <Modal>
         <h1>Coronavirus Deaths Worldwide</h1>
         <p>
-          This visualizations shows confirmed Covid-19 deaths since the beginning of the pandemic.
+          This visualization shows confirmed Covid-19 deaths since the beginning of the pandemic.
           Each block represents a person that died with a Covid-19 infection. The blocks are grouped
           by months.
         </p>
         <p>
-          You can walk around with the keys WASD or arrow keys and look around by moving the mouse.
-          Press ESC to come back to this start screen.
+          You can walk around by using the keys W,A,S and D or arrow keys and look around by moving
+          the mouse. Press ESC to come back to this start screen.
         </p>
         <Select />
         <ButtonWrapper>

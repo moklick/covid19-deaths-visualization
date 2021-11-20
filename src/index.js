@@ -9,18 +9,15 @@ import theme from 'style/theme';
 import Scene from 'components/Scene';
 import StartScreen from 'components/StartScreen';
 
-const AppWrapper = () => {
-  const onCreated = (state) => {
-    state.gl.shadowMap.needsUpdate = true;
-    state.gl.shadowMap.autoUpdate = false;
+const onCreated = (state) => {
+  state.camera.lookAt(0, -2, 0);
+  state.gl.shadowMap.needsUpdate = true;
+  state.gl.shadowMap.autoUpdate = false;
 
-    console.log(state);
+  window.state = state;
+};
 
-    state.camera.lookAt(0, -2, 0);
-
-    window.state = state;
-  };
-
+function App() {
   return (
     <ThemeProvider theme={theme}>
       <NormalizeStyle />
@@ -33,6 +30,6 @@ const AppWrapper = () => {
       </Canvas>
     </ThemeProvider>
   );
-};
+}
 
-ReactDOM.render(<AppWrapper />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));

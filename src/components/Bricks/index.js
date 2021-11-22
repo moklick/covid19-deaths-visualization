@@ -49,7 +49,7 @@ function Bricks() {
           tempObject.updateMatrix();
           ref.current.setMatrixAt(id, tempObject.matrix);
 
-          tempObject2.position.set(x + 0.19, 0, z - 0.33);
+          tempObject2.position.set(x + 0.2, 0, z - 0.345);
           tempObject2.rotation.x = -Math.PI / 2;
           tempObject2.updateMatrix();
           ref2.current.setMatrixAt(id, tempObject2.matrix);
@@ -70,7 +70,7 @@ function Bricks() {
         <meshLambertMaterial color="#fefefe" />
       </instancedMesh>
       <instancedMesh ref={ref2} args={[null, null, grid.size]}>
-        <planeBufferGeometry args={[0.88, 0.95, 1, 1]} />
+        <planeBufferGeometry args={[0.9, 1, 1, 1]} />
         <meshBasicMaterial map={planeTexture} opacity={0.75} />
       </instancedMesh>
       <Labels data={grid.data} />

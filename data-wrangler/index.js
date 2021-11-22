@@ -1,12 +1,17 @@
-const fs = require('fs');
-const path = require('path');
-const { parse } = require('csv-parse');
+import { writeFile } from 'fs';
+import { resolve, dirname } from 'path';
+import { parse } from 'csv-parse';
+import { fileURLToPath } from 'url';
+import fetch from 'node-fetch';
 
-const outputPath = path.resolve(__dirname, '..', 'static', 'data');
-const input = fs.readFileSync(path.join(__dirname, './owid-covid.csv'), 'utf8');
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const outputPath = resolve(__dirname, '..', 'static', 'data');
+
+const response = await fetch('https://covid.ourworldindata.org/data/owid-covid-data.csv');
+const csvData = await response.text();
 
 parse(
-  input,
+  csvData,
   {
     columns: true,
     on_record: (record) => ({
@@ -34,7 +39,7 @@ parse(
     }, {});
 
     Object.entries(groupedData).forEach(([key, value]) => {
-      fs.writeFile(`${outputPath}/${key}.json`, JSON.stringify(value), (err) => {
+      writeFile(`${outputPath}/${key}.json`, JSON.stringify(value), (err) => {
         if (err) {
           console.log(err);
         }
@@ -49,7 +54,7 @@ parse(
         deaths,
       }));
 
-    fs.writeFile(`${outputPath}/countries.json`, JSON.stringify(overviewData), (err) => {
+    writeFile(`${outputPath}/countries.json`, JSON.stringify(overviewData), (err) => {
       if (err) {
         console.log(err);
       }

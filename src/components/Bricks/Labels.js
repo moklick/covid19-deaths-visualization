@@ -30,7 +30,7 @@ function Labels({ data }) {
         fontSize={0.25}
         color="#efefef"
       >
-        {deaths} deaths
+        {deaths.toLocaleString()} deaths
       </Text>
     </group>
   ));

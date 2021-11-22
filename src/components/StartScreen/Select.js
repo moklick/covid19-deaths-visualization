@@ -33,7 +33,7 @@ const colorAndBg = (state) => {
 const styles = {
   control: (base) => ({
     ...base,
-    borderColor: '#eee',
+    borderColor: '#ddd',
     boxShadow: 'none',
     '&:active': borderStyle,
     '&:hover': borderStyle,

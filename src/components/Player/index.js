@@ -5,7 +5,10 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Vector3 } from 'three';
 import { useSphere } from '@react-three/cannon';
 import { useThree, useFrame } from '@react-three/fiber';
+import shallow from 'zustand/shallow';
+
 import useStore from 'state';
+import { hasTouch } from 'utils/browser-utils';
 
 const SPEED = 6;
 const keys = {
@@ -13,6 +16,10 @@ const keys = {
   KeyS: 'backward',
   KeyA: 'left',
   KeyD: 'right',
+  ArrowUp: 'forward',
+  ArrowDown: 'backward',
+  ArrowLeft: 'left',
+  ArrowRight: 'right',
   Space: 'jump',
   ShiftLeft: 'run',
 };
@@ -48,10 +55,10 @@ const usePlayerControls = () => {
   return movement;
 };
 
-const selector = (s) => s.isPlaying;
+const selector = (s) => ({ isPlaying: s.isPlaying, country: s.country });
 
 function Player() {
-  const isPlaying = useStore(selector);
+  const { isPlaying, country } = useStore(selector, shallow);
   const [ref, api] = useSphere(() => ({
     mass: 1,
     type: 'Dynamic',
@@ -68,6 +75,11 @@ function Player() {
       }),
     []
   );
+
+  useEffect(() => {
+    api.position.set(0, 5, 5);
+    camera.lookAt(0, hasTouch ? 0 : -2, hasTouch ? -5 : 0);
+  }, [country]);
 
   useFrame(() => {
     ref.current.getWorldPosition(camera.position);

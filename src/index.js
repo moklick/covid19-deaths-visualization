@@ -12,24 +12,13 @@ import { hasTouch } from 'utils/browser-utils';
 
 const cameraPosition = hasTouch ? [0, 5, 10] : undefined;
 
-const onCreated = (state) => {
-  state.camera.lookAt(0, hasTouch ? 0 : -2, hasTouch ? -5 : 0);
-
-  state.gl.shadowMap.autoUpdate = false;
-};
-
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <NormalizeStyle />
       <GlobalStyle />
       <StartScreen />
-      <Canvas
-        shadows
-        gl={{ alpha: true }}
-        camera={{ position: cameraPosition, far: 100 }}
-        onCreated={onCreated}
-      >
+      <Canvas shadows gl={{ alpha: true }} camera={{ position: cameraPosition, far: 100 }}>
         <Suspense fallback={null}>
           <Scene />
         </Suspense>

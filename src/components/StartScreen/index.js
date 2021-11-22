@@ -111,11 +111,6 @@ const selector = (s) => ({
   setMousePos: s.setMousePos,
 });
 
-function preventClick(e) {
-  e.preventDefault();
-  e.stopPropagation();
-}
-
 function StartScreen() {
   const { isPlaying, setIsPlaying, setMousePos } = useStore(selector, shallow);
 
@@ -130,7 +125,7 @@ function StartScreen() {
   }
 
   return (
-    <Background onMouseMove={onMouseMove} onClick={preventClick}>
+    <Background onMouseMove={onMouseMove}>
       <Modal>
         <h1>Coronavirus Cemetery</h1>
         <p>

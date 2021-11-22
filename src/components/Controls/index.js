@@ -24,7 +24,7 @@ function Controls() {
   return (
     <>
       {!isPlaying && !hasTouch && <CameraIdle />}
-      {!hasTouch && <PointerLockControls onUnlock={onUnlock} ref={pointerLockRef} />}
+      {isPlaying && !hasTouch && <PointerLockControls onUnlock={onUnlock} ref={pointerLockRef} />}
       {isPlaying && hasTouch && (
         <MapControls
           screenSpacePanning={false}

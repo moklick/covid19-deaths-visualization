@@ -43,9 +43,10 @@ parse(
 
     const overviewData = Object.entries(groupedData)
       .filter(([iso, { deaths }]) => deaths > 0 && !iso.includes('owid'))
-      .map(([value, { name }]) => ({
+      .map(([value, { name, deaths }]) => ({
         value,
         label: name,
+        deaths,
       }));
 
     fs.writeFile(`${outputPath}/countries.json`, JSON.stringify(overviewData), (err) => {

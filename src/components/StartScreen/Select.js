@@ -12,12 +12,22 @@ const borderStyle = {
   boxShadow: 'none',
 };
 
-const focusedBg = (state) => {
+const colorAndBg = (state) => {
+  let backgroundColor = '#fff';
+  let color = '#111';
+
   if (state.isFocused) {
-    return '#FEEBC8';
+    backgroundColor = '#333';
+    color = '#fff';
+  } else if (state.isSelected) {
+    backgroundColor = '#222';
+    color = '#fff';
   }
 
-  return state.isSelected ? '#fbd38d' : 'white';
+  return {
+    backgroundColor,
+    color,
+  };
 };
 
 const styles = {
@@ -31,9 +41,12 @@ const styles = {
   }),
   option: (base, state) => ({
     ...base,
-    background: focusedBg(state),
+    ...colorAndBg(state),
     '&:hover': {
-      background: '#FEEBC8',
+      background: '#333',
+    },
+    span: {
+      color: '#ababab',
     },
   }),
 };
@@ -47,6 +60,14 @@ const Info = styled.div`
   color: #999;
   font-size: 12px;
 `;
+
+function formatOptionLabel({ label, deaths }) {
+  return (
+    <>
+      {label} <span>({deaths.toLocaleString()} deaths)</span>
+    </>
+  );
+}
 
 function Select() {
   const [isInitialUse, setInitialUse] = useState(true);
@@ -63,6 +84,7 @@ function Select() {
         placeholder="Select a country..."
         onChange={onChange}
         styles={styles}
+        formatOptionLabel={formatOptionLabel}
       />
       {isInitialUse && <Info>current country: {getCountryByIso(country).label}</Info>}
     </>

@@ -1,8 +1,8 @@
 // player controls taken from https://codesandbox.io/s/minecraft-vkgi6
 // via: https://docs.pmnd.rs/react-three-fiber/getting-started/examples
 
-import { Vector3 } from 'three';
 import React, { useEffect, useRef, useState } from 'react';
+import { Vector3 } from 'three';
 import { useSphere } from '@react-three/cannon';
 import { useThree, useFrame } from '@react-three/fiber';
 import useStore from 'state';
@@ -81,13 +81,13 @@ function Player() {
         .normalize()
         .multiplyScalar(SPEED * (run ? 10 : 1))
         .applyEuler(camera.rotation);
-    }
 
-    speed.fromArray(velocity.current);
-    api.velocity.set(direction.x, velocity.current[1], direction.z);
+      speed.fromArray(velocity.current);
+      api.velocity.set(direction.x, velocity.current[1], direction.z);
 
-    if (isPlaying && jump && Math.abs(velocity.current[1]) < 0.05) {
-      api.velocity.set(velocity.current[0], 10, velocity.current[2]);
+      if (isPlaying && jump && Math.abs(velocity.current[1]) < 0.05) {
+        api.velocity.set(velocity.current[0], 10, velocity.current[2]);
+      }
     }
   });
 

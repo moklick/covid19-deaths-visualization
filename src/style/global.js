@@ -5,26 +5,20 @@ const GlobalStyle = () => {
   const theme = useTheme();
 
   const globalStyles = css`
-    /* lato-regular - latin */
     @font-face {
       font-family: 'Lato';
       font-style: normal;
       font-weight: 400;
-      src: local(''), url('/static/fonts/lato-v20-latin-regular.woff2') format('woff2');
+      src: local(''), url('/static/fonts/lato-v20-latin-regular.woff2') format('woff2'),
+        url('/static/fonts/lato-v20-latin-regular.woff') format('woff');
     }
-    /* lato-700 - latin */
+
     @font-face {
-      font-family: 'Lato';
+      font-family: 'Merriweather';
       font-style: normal;
-      font-weight: 700;
-      src: local(''), url('/static/fonts/lato-v20-latin-700.woff2') format('woff2');
-    }
-    /* lato-900 - latin */
-    @font-face {
-      font-family: 'Lato';
-      font-style: normal;
-      font-weight: 900;
-      src: local(''), url('/static/fonts/lato-v20-latin-900.woff2') format('woff2');
+      font-weight: 400;
+      src: local(''), url('/static/fonts/merriweather-v25-latin-regular.woff2') format('woff2'),
+        url('/static/fonts/merriweather-v25-latin-regular.woff') format('woff');
     }
 
     html,

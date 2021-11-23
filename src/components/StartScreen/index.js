@@ -31,9 +31,10 @@ const Modal = styled.div`
   }
 
   h1 {
-    font-weight: 900;
     line-height: 1.2;
     font-size: 2.2rem;
+    font-family: Merriweather, serif;
+    font-weight: 400;
   }
 
   p span {
@@ -48,8 +49,6 @@ const Modal = styled.div`
     border-style: solid;
   }
 `;
-
-const ButtonWrapper = styled.div``;
 
 const Button = styled.button`
   background: white;
@@ -129,9 +128,15 @@ function StartScreen() {
       <Modal>
         <h1>Coronavirus Cemetery</h1>
         <p>
-          This visualization shows confirmed Covid-19 deaths since the beginning of the pandemic.
-          Each block represents a person that died with a Covid-19 infection. The blocks are grouped
-          by months. There are 100 blocks in a row.
+          Almost 100k people have died of COVID-19 in the country where I live (Germany). If not
+          enough people get vaccinated another 100k+ people will die. To get a better sense of these
+          numbers I created this visualization.
+        </p>
+
+        <p>
+          The visualization shows confirmed COVID-19 deaths since the beginning of the pandemic.
+          Each block represents a person who has died with a COVID-19 infection. The blocks are
+          grouped by months. There are 100 blocks in a row.
         </p>
         {hasTouch ? (
           <p>
@@ -146,9 +151,8 @@ function StartScreen() {
           </p>
         )}
         <Select />
-        <ButtonWrapper>
-          <Button onClick={() => setIsPlaying(true)}>Start</Button>
-        </ButtonWrapper>
+
+        <Button onClick={() => setIsPlaying(true)}>Start</Button>
 
         <Byline>
           Data Source: <a href="https://ourworldindata.org/covid-deaths">Our World in Data</a>

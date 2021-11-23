@@ -10,7 +10,7 @@ import shallow from 'zustand/shallow';
 import useStore from 'state';
 import { hasTouch } from 'utils/browser-utils';
 
-const SPEED = 6;
+const SPEED = 5;
 const keys = {
   KeyW: 'forward',
   KeyS: 'backward',

@@ -36,18 +36,18 @@ const Modal = styled.div`
     font-family: Merriweather, serif;
     font-weight: 400;
   }
+`;
 
-  p span {
-    font-family: monospace;
-    background: #f5f5f5;
-    border-radius: 2px;
-    border-width: 1px 1px 3px;
-    font-size: 14px;
-    padding-inline: 0.4em;
-    white-space: nowrap;
-    border-color: #e0e0e0;
-    border-style: solid;
-  }
+const Kbd = styled.span`
+  font-family: monospace;
+  background: #f5f5f5;
+  border-radius: 2px;
+  border-width: 1px 1px 3px;
+  font-size: 14px;
+  padding-inline: 0.4em;
+  white-space: nowrap;
+  border-color: #e0e0e0;
+  border-style: solid;
 `;
 
 const Button = styled.button`
@@ -104,6 +104,13 @@ const Close = styled.div`
   line-height: 1;
 `;
 
+const ControlsInfo = styled.div`
+  position: absolute;
+  z-index: 10;
+  left: 10px;
+  bottom: 10px;
+`;
+
 const selector = (s) => ({
   isPlaying: s.isPlaying,
   setIsPlaying: s.setIsPlaying,
@@ -120,7 +127,14 @@ function StartScreen() {
   const onClose = useCallback(() => setIsPlaying(false), []);
 
   if (isPlaying) {
-    return hasTouch ? <Close onClick={onClose}>×</Close> : null;
+    return hasTouch ? (
+      <Close onClick={onClose}>×</Close>
+    ) : (
+      <ControlsInfo>
+        Walk: Arrow keys or <Kbd>W</Kbd>,<Kbd>A</Kbd>,<Kbd>S</Kbd> and <Kbd>D</Kbd>. Leave:{' '}
+        <Kbd>ESC</Kbd>
+      </ControlsInfo>
+    );
   }
 
   return (
@@ -145,9 +159,9 @@ function StartScreen() {
           </p>
         ) : (
           <p>
-            You can walk around by using the keys <span>W</span>,<span>A</span>,<span>S</span> and{' '}
-            <span>D</span> or arrow keys and look around by moving the mouse. Press <span>ESC</span>{' '}
-            to come back to this start screen.
+            You can walk around by using the arrow keys or <Kbd>W</Kbd>,<Kbd>A</Kbd>,<Kbd>S</Kbd>{' '}
+            and <Kbd>D</Kbd> and look around by moving the mouse. Press <Kbd>ESC</Kbd> to come back
+            to this start screen.
           </p>
         )}
         <Select />

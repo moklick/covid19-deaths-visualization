@@ -142,7 +142,7 @@ function StartScreen() {
       <Modal>
         <h1>Coronavirus Cemetery</h1>
         <p>
-          Almost 100k people have died of COVID-19 in the country where I live (Germany). If not
+          More than 100k people have died of COVID-19 in the country where I live (Germany). If not
           enough people get vaccinated another 100k+ people will die. To get a better sense of these
           numbers I created this visualization.
         </p>

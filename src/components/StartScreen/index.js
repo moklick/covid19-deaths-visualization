@@ -144,7 +144,7 @@ function StartScreen() {
         <p>
           More than 100k people have died of COVID-19 in the country where I live (Germany). If not
           enough people get vaccinated another 100k+ people will die. To get a better sense of these
-          numbers I created this visualization.
+          numbers I created this walkable visualization.
         </p>
 
         <p>
@@ -159,9 +159,9 @@ function StartScreen() {
           </p>
         ) : (
           <p>
-            You can walk around by using the arrow keys or <Kbd>W</Kbd>,<Kbd>A</Kbd>,<Kbd>S</Kbd>{' '}
-            and <Kbd>D</Kbd> and look around by moving the mouse. Press <Kbd>ESC</Kbd> to come back
-            to this start screen.
+            You can walk around by using arrow keys or <Kbd>W</Kbd>,<Kbd>A</Kbd>,<Kbd>S</Kbd> and{' '}
+            <Kbd>D</Kbd> and look around by moving the mouse. Press <Kbd>ESC</Kbd> to go back to
+            this start screen.
           </p>
         )}
         <Select />
